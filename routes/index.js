@@ -10,8 +10,17 @@ const homeController=require('../controllers/home_controllers')
 
 console.log("router loaded")
 
+ 
 
+//GET
 router.get('/', homeController.home)
+
+//Connecting new file
+router.use('/users', require('./users'))
+
+//for any other routes access from here
+// router.use('/routerName',require('./routerFilename'));
+
 
 
 module.exports=router
