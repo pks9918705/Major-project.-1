@@ -1,6 +1,6 @@
 // this is a controller that controls many user
 module.exports.profile=function(req,res){
-
+    // In this case, the data passed to the "view template" is an object with a single property title set to the string value 'User Profile'. This value can be used within the view template to dynamically display the page title.
     return res.render(
         'user_profile',
         {

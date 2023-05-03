@@ -7,6 +7,19 @@ const expressLayouts = require('express-ejs-layouts')
 
 app.use(expressLayouts)
 
+// ----------------------------------------------------------------
+// using static file in application
+// ----------------------------------------------------------------
+// telling the app to use css/img/js/fonts files from assets  folder
+app.use(express.static('./assets'))
+
+//extract style and scripts from sub-pages and add them to head of layout.ejs
+app.set('layout extractStyles',  true)
+app.set('layout extractScript',  true)
+
+ 
+
+
 
 //use express Router
 app.use('/',require('./routes'))
