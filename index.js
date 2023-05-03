@@ -17,6 +17,12 @@ app.use(express.static('./assets'))
 app.set('layout extractStyles',  true)
 app.set('layout extractScript',  true)
 
+
+// adding mongoose.js 
+const db=require('./config/mongoose')
+// above code will go to mongoose.js and that file
+
+
  
 
 
