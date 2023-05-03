@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <title>
-        <%= title %> 
-    </title>
-</head>
-<body>
-    <!-- <header>
-        Page header
-    </header> -->
-    <!-- above code is replaced with below .ejs file
-     -->
-     <%- include('-header.ejs'); %>
+  <!-- layout is fixed and layout has a body part where the ejs files will be rendered
+ so you have to put only the boday part -->
 
-    <h1>Codeail / <%= title %>  </h1>
+    <h1>
+        Codeail / <%= title %>  
+    </h1>
      
 
-     <!-- -- --------------------------------  
-     footer ejs is added
-     ----------------------------------------------------   -->
-     <%- include('-footer.ejs'); %>
-
-
-</body>
-</html>
+ 

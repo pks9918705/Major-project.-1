@@ -9,7 +9,7 @@ module.exports.profile=function(req,res){
 
     )
 }
-
+// aise hi run krke dkho -timepass
 module.exports.timepass=function(req,res){
     return res.end('<h1>Time Pass</h1>')
 }
