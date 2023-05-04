@@ -4,7 +4,11 @@ const express=require('express');
 
 const router=express.Router()
 
+
+//adding controllers
 const homeController=require('../controllers/home_controllers')
+ 
+
  
 
 
@@ -15,6 +19,8 @@ console.log("router loaded")
 
 //GET
 router.get('/', homeController.home)
+
+ 
 
 //Connecting new file
 router.use('/users', require('./users'))

@@ -1,6 +1,6 @@
-// this is a controller that controls many user
+ 
 module.exports.profile=function(req,res){
-    // In this case, the data passed to the "view template" is an object with a single property title set to the string value 'User Profile'. This value can be used within the view template to dynamically display the page title.
+     
     return res.render(
         'user_profile',
         {
@@ -9,7 +9,38 @@ module.exports.profile=function(req,res){
 
     )
 }
-// aise hi run krke dkho -timepass
-module.exports.timepass=function(req,res){
-    return res.end('<h1>Time Pass</h1>')
+//render the sign up page
+module.exports.signUp=function(req,res){
+    return res.render(
+      'user_sign_up',
+        {
+            title: 'Sign Up',
+        }   
+
+    )
 }
+//render the sign in page
+module.exports.signIn=function(req,res){
+    return res.render(
+      'user_sign_in',
+        {
+            title: 'Sign In ',
+        }   
+
+    )
+}
+
+//get the sign up data
+module.exports.create=function(req,res){
+
+    // ToDO later 
+    
+}
+//get the sign in data
+module.exports.createSession=function(req,res){
+
+    // ToDO later 
+    // sign in and create a new session
+
+}
+ 
