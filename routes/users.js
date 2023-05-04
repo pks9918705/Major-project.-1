@@ -15,4 +15,7 @@ router.get('/profile', user_controller.profile)
 router.get('/sign-in', user_controller.signIn)
 router.get('/sign-up', user_controller.signUp)
 
+//posting form data
+router.post('/create', user_controller.create)
+
 module.exports=router
