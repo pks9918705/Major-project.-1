@@ -21,7 +21,8 @@ const passportLocal = require('./config/passport-local-strategy')
 //----------------------------------------------------------------
 //monostore
 //----------------------------------------------------------------
-const MongoStore = require('connect-mongo') 
+const MongoStore = require('connect-mongo')(session)
+//session is passes in parameter becuase you need to save session info in database
 
 app.use(express.urlencoded({ extended: true }));
 //----------------------------------------------------------------
@@ -56,10 +57,12 @@ app.set('layout extractScript', true)
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
-// mongostore is used to store session cookie in DB 
+ 
+
 
 const dblink='mongodb://localhost/codeial_development'
 
+//mongostore is used to store session cookie in db
 app.use(session({
     name: 'codeial',
     //TODO change the secret before deployement in production mode
