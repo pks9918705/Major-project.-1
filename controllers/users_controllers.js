@@ -1,6 +1,8 @@
 //importing the model
 const User = require('../models/user');
 
+const passport = require('passport');
+
 module.exports.profile = function (req, res) {
 
     return res.render(
@@ -13,6 +15,7 @@ module.exports.profile = function (req, res) {
 }
 //render the sign up page
 module.exports.signUp = function (req, res) {
+    // if the user is signin then you can't  go to signUp
     if(req.isAuthenticated()) {
         return res.redirect('/users/profile');
     }

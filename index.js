@@ -87,7 +87,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(passport.checkAuthentication);
+// app.use(passport.checkAuthentication);
 app.use(passport.setAuthenticatedUser);
 
 
