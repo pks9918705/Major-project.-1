@@ -21,7 +21,7 @@ const passportLocal = require('./config/passport-local-strategy')
 //----------------------------------------------------------------
 //monostore
 //----------------------------------------------------------------
-const MongoStore = require('connect-mongo')(session)
+const MongoStore = require('connect-mongo') 
 //session is passes in parameter becuase you need to save session info in database
 
 app.use(express.urlencoded({ extended: true }));

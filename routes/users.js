@@ -30,4 +30,6 @@ router.post('/create-session', passport.authenticate(
 // here 3 arguments in .post , middleware is in middle 
 //passport is used as middleware to authenticate
 
+router.get('/sign-out', user_controller.destroySession)
+
 module.exports=router
