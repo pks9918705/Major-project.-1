@@ -1,0 +1,29 @@
+body #layout-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #5151ff; }
+  body #layout-main #sign-in {
+    font-size: 10vh; }
+  body #layout-main form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    body #layout-main form input {
+      border: 0.5px solid black;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      height: 3vh;
+      width: 30vw;
+      padding: 20px;
+      font-size: 1rem; }
+    body #layout-main form button {
+      height: 6vh;
+      width: 6vh;
+      border: 2px solid #6a6aff;
+      color: white;
+      font-size: 30px;
+      border-radius: 50%;
+      background-color: #6a6aff; }
