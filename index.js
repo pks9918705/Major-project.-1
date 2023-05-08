@@ -4,15 +4,15 @@ const app = express()
 const cookieParser = require('cookie-parser')
 const port = 8000
 //----------------------------------------------------------------
-                //SASS middleware
+//SASS middleware
 //----------------------------------------------------------------
 const sassMiddleware = require('node-sass-middleware')
 app.use(sassMiddleware({
-    src:'/assets/scss',
-    dest:'/assets/css',
-         debug: true,
-         outputStyle:'extended',
-         prefix:'/css'
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle: 'extended',
+    prefix: '/css'
 }))
 //----------------------------------------------------------------
 // adding mongoose.js 
@@ -32,7 +32,7 @@ const passportLocal = require('./config/passport-local-strategy')
 //----------------------------------------------------------------
 //monostore
 //----------------------------------------------------------------
-const MongoStore = require('connect-mongo') 
+const MongoStore = require('connect-mongo')
 //session is passes in parameter becuase you need to save session info in database
 
 app.use(express.urlencoded({ extended: true }));
@@ -42,7 +42,7 @@ app.use(express.urlencoded({ extended: true }));
 // for reading and writing into cookies
 app.use(cookieParser())
 
- 
+
 //----------------------------------------------------------------
 //express-ejs-layouts lib
 //----------------------------------------------------------------
@@ -59,7 +59,7 @@ app.use(express.static('./assets'))
 app.set('layout extractStyles', true)
 app.set('layout extractScript', true)
 
- 
+
 
 //----------------------------------------------------------------
 //set up the view engine
@@ -68,10 +68,10 @@ app.set('layout extractScript', true)
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
- 
 
 
-const dblink='mongodb://localhost/codeial_development'
+
+const dblink = 'mongodb://localhost/codeial_development'
 
 //mongostore is used to store session cookie in db
 app.use(session({
@@ -86,13 +86,13 @@ app.use(session({
     },
     store: MongoStore.create(
         {
-            mongoUrl:dblink,
-            autoRemove:'disabled',
-             
-        } ,
-        function(err){
+            mongoUrl: dblink,
+            autoRemove: 'disabled',
+
+        },
+        function (err) {
             console.log(err || 'connect mongodb setup ok');
-            
+
         }
     )
 

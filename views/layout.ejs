@@ -4,6 +4,10 @@
     <title><%= title %></title>
     <!-- linking the layout.css file  -->
     <link rel="stylesheet" href="/css/layout.css">
+    <!-- css for _header & _footer  -->
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/ccs/home.css">
 
 
     <%- style %>
@@ -13,8 +17,14 @@
     <%- include('_header'); %>
 
     <!-- we have to tell where is the variable part  -->
+    <main id="layout-main">
 
-    <%- body %> 
+      <%- body %>
+
+
+    </main>
+
+   
     
     <%- include('_footer'); %>
 

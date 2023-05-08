@@ -1,10 +1,17 @@
-  <!-- layout is fixed and layout has a body part where the ejs files will be rendered
+<!-- layout is fixed and layout has a body part where the ejs files will be rendered
  so you have to put only the boday part -->
- <link rel="stylesheet" href="/css/home.css">
+<!-- <link rel="stylesheet" href="/css/home.css"> -->
 
-    <h1>
-        Codeail / <%= title %>  
-    </h1>
-     
+<div id="home-page">
+  <% if(locals.user){ %>
 
- 
+  <h1> <%= title %></h1>
+   
+  <h1>Welcome !! <%= user.name %></h1>
+
+  <% } else { %>
+
+  <h1>Codeail / Please Sign In</h1>
+
+  <% } %>
+</div>

@@ -1,6 +1,14 @@
- <!-- this type of name is use so that it can be easily identified -->
+<!-- this type of name is use so that it can be easily identified -->
 
- <footer>
-    page footer
- </footer>
- 
+<footer>
+  <div >
+    Designned by Priyanshu &#64; <span style="font-weight: 900">Codiel</span>
+  </div>
+  <% if(locals.user){ %>
+
+  <div class="menu-below">
+    <a   href="/">Home</a>
+    <a   href="/users/profile">Profile</a>
+  </div>
+  <% } %>
+</footer>

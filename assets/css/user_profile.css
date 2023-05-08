@@ -1,0 +1,11 @@
+body #layout-main {
+  background-color: #efefff;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center; }
+  body #layout-main div h1 {
+    font-weight: bold;
+    font-size: 3.5em; }
+  body #layout-main div p {
+    text-align: center; }

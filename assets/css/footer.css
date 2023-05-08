@@ -1,0 +1,16 @@
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 10vh;
+  color: white; }
+  footer div a {
+    color: whitesmoke;
+    font-weight: 900; }
+  footer div a:hover {
+    color: white; }
+  footer .menu-below {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 132px; }
