@@ -3,3 +3,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+
+#feed-posts h4 {
+  text-align: center; }
+
+#new-post-form button {
+  margin-top: 20px; }
+
+#posts-list-container ul {
+  display: flex;
+  flex-direction: column; }
+  #posts-list-container ul li {
+    height: auto;
+    margin-bottom: 1.5rem;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px; }
+    #posts-list-container ul li p {
+      font-weight: 900; }
+    #posts-list-container ul li small {
+      font-family: 'Courier New', Courier, monospace; }

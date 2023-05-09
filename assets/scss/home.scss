@@ -7,3 +7,41 @@
     justify-content: center;
     align-items: center;
 }
+#feed-posts{
+    h4{
+        text-align: center;
+
+    }
+     
+
+    
+}
+#new-post-form{
+
+    button{
+        margin-top: 20px;
+    }
+}
+#posts-list-container{
+    ul{
+        display: flex;
+        flex-direction: column;
+
+        li{
+            height: auto;
+            // border: 2px solid black;
+            margin-bottom: 1.5rem;
+            padding: 15px;
+            p{
+                font-weight: 900;
+            }
+            small{
+                font-family: 'Courier New', Courier, monospace;
+
+            }
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            
+        }
+    }
+}

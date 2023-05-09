@@ -22,6 +22,7 @@ router.get('/sign-up', user_controller.signUp)
 //posting form data
 router.post('/create', user_controller.create)
 
+
 router.post('/create-session', passport.authenticate(
     'local',
     {failureRedirect:'/users/sign-in'}

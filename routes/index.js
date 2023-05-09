@@ -15,6 +15,9 @@ router.get('/', homeController.home)
  
 //Connecting new file
 router.use('/users', require('./users'))
+//foR creatinf new post
+router.use('/posts', require('./posts'))
+
 
 //for any other routes access from here
 // router.use('/routerName',require('./routerFilename'));
