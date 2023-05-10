@@ -7,7 +7,7 @@
 
   <h1> <%= title %></h1>
    
-  <h1>Welcome !! <%= user.name %></h1>
+  <h1  contentEditable="true">Welcome !! <%= user.name %></h1>
 
   <section id="feed-posts">
 
@@ -19,31 +19,8 @@
       <button type="submit">&rsaquo;</button>
 
     </form>
-
-    <div id="posts-list-container">
-      <ul> 
-        <% for(post of posts) { %>
-          
-          <li>
-            <p>
-              <%= post.content %>
-            </p>
-            <br>
-            <small> <%= post.createdAt %> </small>
-            <br>
-             <small><i><%= post.user.name %></i> </small>
-            
-           
-               
-          </li>
-          <% } %>
-
-      </ul>
-    </div>
-
-
-
-
+   </div>
+  
   </section>
 
 
@@ -52,5 +29,30 @@
 
   <h1>Codeail / Please Sign In</h1>
 
+  
+
   <% } %>
+
+  <div id="posts-list-container">
+    <ul> 
+      <% for(post of posts) { %>
+        
+        <li>
+          <p>
+            <%= post.content %>
+          </p>
+          <br>
+          <small> <%= post.createdAt %> </small>
+          <br>
+           <small><i><%= post.user.name %></i> </small>
+          
+         
+             
+        </li>
+      <% } %>
+
+    </ul>
+
+  </div>
+
 </div>
