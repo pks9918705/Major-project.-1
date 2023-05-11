@@ -2,6 +2,7 @@
  so you have to put only the boday part -->
 <!-- <link rel="stylesheet" href="/css/home.css"> -->
 
+
 <div id="home-page">
   <% if(locals.user){ %>
 
@@ -9,8 +10,9 @@
    
   <h1  contentEditable="true">Welcome !! <%= user.name %></h1>
 
+                                  <!-- post input box  -->
   <section id="feed-posts">
-
+  
     <h4>Posts</h4>
     <form action="/posts/create" id="new-post-form" method="POST">
 
@@ -45,6 +47,25 @@
           <small> <%= post.createdAt %> </small>
           <br>
            <small><i><%= post.user.name %></i> </small>
+
+           <!-- adding the comment box in post display  -->
+           <div class="post-comments">
+
+           <% if(locals.user) { %>
+
+            <!-- if user is singin then only add comment can take place  -->
+
+            <form action="/comments/create" method="POST">
+
+              <input type="text" name="content" placeholder="Add comment to post... ">
+              <!-- here we are sending the current post_id so that comment is added on it  -->
+              <input type="hidden" name="postId" value=" <%= post._id %>">
+              <input type="submit" value="Add Comment">
+            </form>
+
+            <% } %>
+
+           </div>
           
          
              
