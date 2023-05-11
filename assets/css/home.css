@@ -22,4 +22,19 @@
     #posts-list-container ul li p {
       font-weight: 900; }
     #posts-list-container ul li small {
-      font-family: 'Courier New', Courier, monospace; }
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 200; }
+
+.post-comment-lists ul {
+  list-style: none; }
+  .post-comment-lists ul li div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 389px;
+    background-color: whitesmoke;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 7px 20px;
+    height: 10px;
+    font-weight: 500; }

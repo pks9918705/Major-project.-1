@@ -37,10 +37,33 @@
             }
             small{
                 font-family: 'Courier New', Courier, monospace;
+                font-weight: 200;
 
             }
             background-color: rgb(255, 255, 255);
             border-radius: 10px;
+            
+        }
+    }
+}
+.post-comment-lists{
+    ul{
+        list-style: none;
+        li{
+           div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 389px;
+            background-color: rgb(245, 245, 245);
+            margin-bottom: 5px;
+            border-radius: 10px;
+            padding: 7px 20px;
+            height: 10px;
+            font-weight: 500;
+             
+
+           }
             
         }
     }
