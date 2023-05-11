@@ -65,9 +65,24 @@
             <% } %>
 
            </div>
-          
-         
-             
+
+            <!-- showing the comment list  -->
+            <div class="post-comment-lists">
+              <ul id="post-comments-<%=post._id %>">
+  
+                <% if(post.comments.length > 0) { %>
+                <% for(comment of post.comments) { %>
+                  <p>
+                    <%= comment.content %>
+                  </p><br>
+                  <small><%= comment.user.name %></small>
+  
+                  <%} %>
+                  <%} %>
+  
+              </ul>
+             </div>
+    
         </li>
       <% } %>
 

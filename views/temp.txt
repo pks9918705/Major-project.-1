@@ -1,0 +1,16 @@
+ <!-- showing the comment list  -->
+           <div class="post-comment-lists">
+            <ul id="post-comments-<%=post._id %>">
+
+              <% if(posts.comments.length > 0) { %>
+              <% for(comment of posts.comments) { %>
+                <p>
+                  <%= comment.content %>
+                </p><br>
+                <small>comment.user.name</small>
+
+                <%} %>
+                <%} %>
+
+            </ul>
+           </div>

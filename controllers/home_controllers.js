@@ -20,7 +20,30 @@ module.exports.home=function(req,res){
 
     //findiing and send the array
     //populate the user obj
-    Post.find({}).populate('user')
+    // Post.find({}).populate('user')
+    // .then(posts => {
+    //     return res.render(
+    //         'home',
+    //         {
+    //             title: "Home",
+    //             posts: posts
+    //         }
+    //     );
+    // })
+
+    // .catch(err=>{
+    //     console.log("error in finding post",err)
+    //   return res.redirect('back')
+    // })
+
+    Post.find({})
+    .populate('user')
+    .populate({
+        path: 'comments',
+                populate: {
+                    path: 'user'
+                }
+    })
     .then(posts => {
         return res.render(
             'home',
@@ -35,6 +58,8 @@ module.exports.home=function(req,res){
         console.log("error in finding post",err)
       return res.redirect('back')
     })
+
+
 
     
 }
