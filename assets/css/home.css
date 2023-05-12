@@ -40,4 +40,5 @@
     font-weight: 500; }
 
 #delete-button {
-  color: red; }
+  color: black;
+  background-color: aqua; }

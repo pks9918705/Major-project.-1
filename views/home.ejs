@@ -44,11 +44,18 @@
             <%= post.content %>
           </p>
 
-
+          <!-- only when the user is signed in  -->
+         <!-- Delete button is visible to the user you have create the post  -->
+      <%   if(locals.user && locals.user.id == post.user.id) { %>
           <small id="delete-button">
+            <!-- way to send id through link  -->
             <a href="/posts/destroy/<%= post.id %>"> Delete </a>
              
           </small>
+
+
+
+          <% } %>
 
           <br>
           <small> <%= post.createdAt %> </small>
