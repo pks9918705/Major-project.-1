@@ -38,3 +38,6 @@
     padding: 7px 20px;
     height: 10px;
     font-weight: 500; }
+
+#delete-button {
+  color: red; }

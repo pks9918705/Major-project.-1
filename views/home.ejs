@@ -43,6 +43,13 @@
           <p>
             <%= post.content %>
           </p>
+
+
+          <small id="delete-button">
+            <a href="/posts/destroy/<%= post.id %>"> Delete </a>
+             
+          </small>
+
           <br>
           <small> <%= post.createdAt %> </small>
           <br>
@@ -78,6 +85,8 @@
                           
                         </p>
                         <small><%= comment.user.name %></small>
+
+                        
 
                       </div>
                       
