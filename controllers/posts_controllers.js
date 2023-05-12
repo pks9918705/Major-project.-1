@@ -27,54 +27,13 @@ module.exports.create=function(req, res){
 }
 
 
-// for deleteing the post 
-// module.exports.destroy=function(req, res){
-
-  //first we find the post exist or not
-//     Post.findById(req.params.id)
-//     .then((post)=>{
-
-   // .id is use to converting the object id into a string
-//         if(post.user == req.user.id){
-           // post.remove()
-//             Post.findByIdAndDelete(req.params.id)
-//             .then((post)=>{
-//                 console.log('post delted');
-//                 return res.redirect('back');
-                
-//             })
-//             .catch((err)=>{
-//                 console.log('post delete error');
-//                 return res.redirect('back')
-                
-//             })
-
-//             Comment.deleteMany({post:req.params.id})
-//             .then((result)=>{
-//                 console.log('deleting is done');
-//                 return res.redirect('back')
-                
-//             })
-//             .catch((err)=>{
-//                 console.log('not deleted',err);
-//                 return res.redirect('back')
-                
-//             })
-            
-//         }
-//     })
-//     .catch((error)=>{
-//         console.log('post not found for delete',error);
-//         return res.redirect('back')
-        
-//     })
-
-
-// }
+ 
+//? for deleting the post 
 module.exports.destroy = function(req, res) {
     // Find the post to check if it exists or not
     Post.findById(req.params.id)
       .then((post) => {
+        //!.id means converting the object id into a string 
         if (post.user == req.user.id) {
           // Delete associated comments
           Comment.deleteMany({ post: req.params.id })

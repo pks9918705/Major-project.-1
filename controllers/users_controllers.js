@@ -5,13 +5,25 @@ const passport = require('passport');
 
 module.exports.profile = function (req, res) {
 
-    return res.render(
-        'user_profile',
-        {
-            title: 'User Profile',
-        }
+    User.findById(req.params.id)
+    .then((user) => {
 
-    )
+        return res.render(
+            'user_profile',
+            {
+                title: 'User Profile',
+                profile_user: user
+            }
+    
+        )
+
+    })
+    .catch(err => {
+        console.log('error in finding post in user_controller', err);
+        
+    })
+
+    
 }
 //render the sign up page
 module.exports.signUp = function (req, res) {

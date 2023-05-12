@@ -38,78 +38,10 @@
   <div id="posts-list-container">
     <ul> 
       <% for(post of posts) { %>
-        
-        <li>
-          <p>
-            <%= post.content %>
-          </p>
 
-          <!-- only when the user is signed in  -->
-         <!-- Delete button is visible to the user you have create the post  -->
-      <%   if(locals.user && locals.user.id == post.user.id) { %>
-          <small id="delete-button">
-            <!-- way to send id through link  -->
-            <a href="/posts/destroy/<%= post.id %>"> Delete </a>
-             
-          </small>
+        <!-- _posts.ejs ko include kiya gaya hai  -->
+        <%- include('_posts')-%>
 
-
-
-          <% } %>
-
-          <br>
-          <small> <%= post.createdAt %> </small>
-          <br>
-           <small><i><%= post.user.name %></i> </small>
-
-           <!-- adding the comment box in post display  -->
-           <div class="post-comments">
-
-           <% if(locals.user) { %>
-            <!-- if user is singin then only add comment can take place  -->
-
-            <form action="/comments/create" method="POST">
-
-              <input type="text" name="content" placeholder="Add comment to post... ">
-              <!-- here we are sending the current post_id so that comment is added on it  -->
-              <input type="hidden" name="postId" value=" <%= post._id %>">
-              <input type="submit" value="Add Comment">
-            </form>
-
-            <% } %>
-
-           </div>
-
-            <!-- showing the comment list  -->
-            <div class="post-comment-lists">
-              <ul id="post-comments-<%=post._id %>">
-                <li>
-                  <% if(post.comments.length > 0) { %>
-                    <% for(comment of post.comments) { %>
-                      <div>
-                        <p>
-                          <%= comment.content %>
-                          
-                        </p>
-                        <small><%= comment.user.name %></small>
-
-                        
-
-                      </div>
-                      
-                      
-      
-                      <%} %>
-                      <%} %>
-
-                </li>
-  
-               
-  
-              </ul>
-             </div>
-    
-        </li>
       <% } %>
 
     </ul>
@@ -117,3 +49,26 @@
   </div>
 
 </div>
+
+
+
+
+
+<section id="user-friends">
+
+  <h4>Friends</h4>
+  <ul>
+    <% for(u of all_users) { %>
+      <li>
+        <p>
+          <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
+        </p>
+      </li>
+     <% } %>
+
+  </ul>
+
+</section>
+
+
+

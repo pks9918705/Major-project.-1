@@ -14,7 +14,7 @@ const user_controller = require('../controllers/users_controllers')
 // router.get('/', user_controller.timepass)
 
 
-router.get('/profile', passport.checkAuthentication, user_controller.profile)
+router.get('/profile/:id', passport.checkAuthentication, user_controller.profile)
 
 router.get('/sign-in', user_controller.signIn)
 router.get('/sign-up', user_controller.signUp)

@@ -42,3 +42,7 @@
 #delete-button {
   color: black;
   background-color: aqua; }
+
+#user-friends ul li a {
+  color: black;
+  border: none; }

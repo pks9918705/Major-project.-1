@@ -1,0 +1,53 @@
+<li>
+    <p>
+      <%= post.content %>
+    </p>
+
+    <!-- only when the user is signed in  -->
+   <!-- Delete button is visible to the user you have create the post  -->
+<%   if(locals.user && locals.user.id == post.user.id) { %>
+    <small id="delete-button">
+      <!-- way to send id through link  -->
+      <a href="/posts/destroy/<%= post.id %>"> Delete </a>
+       
+    </small>
+
+
+
+    <% } %>
+
+    <br>
+    <small> <%= post.createdAt %> </small>
+    <br>
+     <small><i><%= post.user.name %></i> </small>
+
+     <!-- adding the comment box in post display  -->
+     <div class="post-comments">
+
+     <% if(locals.user) { %>
+      <!-- if user is singin then only add comment can take place  -->
+
+      <form action="/comments/create" method="POST">
+
+        <input type="text" name="content" placeholder="Add comment to post... ">
+        <!-- here we are sending the current post_id so that comment is added on it  -->
+        <input type="hidden" name="postId" value=" <%= post._id %>">
+        <input type="submit" value="Add Comment">
+      </form>
+
+      <% } %>
+
+     </div>
+
+      <!-- showing the comment list  -->
+      <div class="post-comment-lists">
+        <ul id="post-comments-<%=post._id %>">
+
+          <!-- including the comments.ejs files  -->
+            <%- include('_comments')-%> 
+         
+
+        </ul>
+       </div>
+
+  </li>
