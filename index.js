@@ -3,6 +3,18 @@ const express = require('express')
 const app = express()
 const cookieParser = require('cookie-parser')
 const port = 8000
+
+//----------------------------------------------------------------
+                //Flash - Connect-flash
+                // it should be set below express session and passport 
+//----------------------------------------------------------------
+const flash = require('connect-flash')
+//----------------------------------------------------------------
+                //adding custom middleware
+//----------------------------------------------------------------
+
+const customMware=require('./config/middleware')
+
 //----------------------------------------------------------------
 //SASS middleware
 //----------------------------------------------------------------
@@ -28,6 +40,8 @@ const db = require('./config/mongoose')
 const session = require('express-session')
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy')
+
+
 
 //----------------------------------------------------------------
 //monostore
@@ -104,6 +118,13 @@ app.use(passport.session())
 // app.use(passport.checkAuthentication);
 app.use(passport.setAuthenticatedUser);
 
+
+//----------------------------------------------------------------
+                //flash is set
+//----------------------------------------------------------------
+app.use(flash())
+// this is use after session cookie because it uses the session cookie 
+app.use(customMware.setFlash)
 
 
 

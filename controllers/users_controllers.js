@@ -133,6 +133,9 @@ module.exports.createSession = function (req, res) {
      
     // sign in and create a new session
     // if the user is authenticated , redirect back to home 
+
+    //? here we need to show flash 
+    req.flash('success','Logged in successfully')
     return res.redirect('/')
 
 
@@ -146,6 +149,8 @@ module.exports.destroySession = function (req, res,next) {
     //passport have this .logout()
     req.logout(function(err) {
         if (err) { return next(err); }
+
+        req.flash('success','Logged out successfully')
         res.redirect('/');
       });
 }
