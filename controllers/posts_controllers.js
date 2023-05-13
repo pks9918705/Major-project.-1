@@ -12,12 +12,15 @@ module.exports.create=function(req, res){
     }) 
     .then((result)=>{
         console.log('post added successfully');
+
+        req.flash('success',"Post created successfully")
        
          return res.redirect('back');
         
     })
     .catch((err)=>{
         console.log('error creating post',err);
+        req.flash('error',"Post creation failed")
         return res.redirect('back');
         
 
@@ -42,10 +45,12 @@ module.exports.destroy = function(req, res) {
               Post.findByIdAndDelete(req.params.id)
                 .then(() => {
                   console.log('Post deleted');
+                  req.flash('success',"Post deleted successfully")
                   return res.redirect('back');
                 })
                 .catch((err) => {
                   console.log('Failed to delete post', err);
+                  req.flash('error',"Post deletion failed")
                   return res.redirect('back');
                 });
             })

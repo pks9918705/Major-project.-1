@@ -8,22 +8,27 @@ const User = require('../models/user');
 
 passport.use(new LocalStrategy({
         usernameField: 'email',
-        // passReqToCallback: true
+        passReqToCallback: true
+        //used so that req can also be sent in parameter
 
     }, 
-    async function(email, password, done){
-        //find the user and stablish the identity
-        
-        let user = await User.findOne({email: email});
-        
-        if(!user || user.password != password ){
-            // req.flash('error', 'Invalid Username/ Password');
-            return done(null, false);
-        }
-        return done(null, user);
+    async function(req, email, password, done) {
+        try {
+          let user = await User.findOne({ email: email });
+          
+          if (!user || user.password !== password) {
 
-        
-    }
+            req.flash('error', 'Invalid');
+            return done(null, false);
+
+          }
+          
+          return done(null, user);
+        } catch (error) {
+          return done(error);
+        }
+      }
+      
 ));
 
 // Serializing the user to decide which key is to be kept in the cookies
