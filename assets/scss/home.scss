@@ -88,3 +88,33 @@
      }
 
 }
+
+#layout-main{
+
+
+    #outer-box{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: start;
+
+        
+        #user-friends{
+            padding-left: 100px;
+            height: 100vh;
+            h4{
+                text-align: center;
+            }
+            // border-left: 1px solid black;
+            width: 30%;
+
+            ul{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    
+}

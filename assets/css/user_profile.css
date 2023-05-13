@@ -9,3 +9,10 @@ body #layout-main {
     font-size: 3.5em; }
   body #layout-main div p {
     text-align: center; }
+  body #layout-main #update-button {
+    border-radius: 20px;
+    height: auto;
+    width: auto;
+    font-size: 1.7rem;
+    padding: 0.6rem;
+    margin-top: 2%; }

@@ -5,6 +5,22 @@
 </div>
 
 <div>
+  <% if(user.id == profile_user.id) { %>
+
+    <!-- updating box for  user profile  -->
+    <!-- if user matches then show the form  -->
+    <!-- else show only the user profile   -->
+    <form action="/users/update/<%= profile_user.id %>" method="POST">
+      <input type="text" name="name" placeholder="Enter your updated name" value="<%= profile_user.name %>" >
+      <input type="email" name="email" placeholder="Enter your updated email" value="<%= profile_user.email %>" >
+      <button id="update-button" type="submit">Update</button>
+    </form>
+    
+    <% } %>
+   
+    <!-- if the user matches  -->
   <p><%= profile_user.name %></p>
   <p><%= profile_user.email %></p>
+
+  
 </div>

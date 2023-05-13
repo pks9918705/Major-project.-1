@@ -18,13 +18,38 @@ module.exports.profile = function (req, res) {
         )
 
     })
-    .catch(err => {
-        console.log('error in finding post in user_controller', err);
+    .catch((err )=> {
+        console.log('error in finding profile', err);
         
     })
 
     
+
+    
 }
+
+//updating profile data
+
+module.exports.Update = function (req, res) {
+    // we have to check that current_user.id should be same who editted the profile form otherwise anyone can put id and update someone's other profile 
+
+    // if the id property of the user object in the request (req.user.id) is equal to the id parameter in the request URL (req.params.id). It is comparing whether the ID of the currently authenticated user (retrieved from req.user.id) matches the ID specified in the URL.
+    if(req.user.id == req.params.id){
+        User.findByIdAndUpdate(req.params.id,req.body)
+        .then( (updatedUser) => {
+            console.log('Your profile has been updated',updatedUser);
+            return res.redirect('back')
+            
+        })
+        .catch( (err) => {
+            console.log('Hato bhencho nhi hoga update ',err);
+           return res.status(401).send('Unauthorized')
+            
+        })
+    }
+}
+
+
 //render the sign up page
 module.exports.signUp = function (req, res) {
     // if the user is signin then you can't  go to signUp

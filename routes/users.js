@@ -16,6 +16,10 @@ const user_controller = require('../controllers/users_controllers')
 
 router.get('/profile/:id', passport.checkAuthentication, user_controller.profile)
 
+
+//router for profile update
+router.post('/update/:id',passport.checkAuthentication, user_controller.Update)
+
 router.get('/sign-in', user_controller.signIn)
 router.get('/sign-up', user_controller.signUp)
 

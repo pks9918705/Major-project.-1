@@ -2,73 +2,79 @@
  so you have to put only the boday part -->
 <!-- <link rel="stylesheet" href="/css/home.css"> -->
 
+<section id="outer-box">
 
-<div id="home-page">
-  <% if(locals.user){ %>
-
-  <h1> <%= title %></h1>
-   
-  <h1  contentEditable="true">Welcome !! <%= user.name %></h1>
-
-                                  <!-- post input box  -->
   <section id="feed-posts">
-  
-    <h4>Posts</h4>
-    <form action="/posts/create" id="new-post-form" method="POST">
-
-      <textarea name="content" id="" cols="30" rows="5"></textarea>
+    <div id="home-page">
+    
+      <% if(locals.user){ %>
+    
+      <h1> <%= title %></h1>
+       
+      <h1  contentEditable="true">Welcome !! <%= user.name %></h1>
+    
+                                      <!-- post input box  -->
       
-      <button type="submit">&rsaquo;</button>
-
-    </form>
-   </div>
+      
+        <h4>Posts</h4>
+        <form action="/posts/create" id="new-post-form" method="POST">
+    
+          <textarea name="content" id="" cols="30" rows="5"></textarea>
+          
+          <button type="submit">&rsaquo;</button>
+    
+        </form>
+    
+       </div>
+  
+   
+  
+  <% } else { %>
+  
+    <h1>Codeail / Please Sign In</h1>
+  
+    
+  
+    <% } %>
+  
+    <div id="posts-list-container">
+      <ul> 
+        <% for(post of posts) { %>
+  
+          <!-- _posts.ejs ko include kiya gaya hai  -->
+          <%- include('_posts')-%>
+  
+        <% } %>
+  
+      </ul>
+  
+    </div>
+  
+  </div>
+  
+  </section>
+  
+  
+  
+  <section id="user-friends">
+  
+    <h4>Friends</h4>
+    <ul>
+      <% for(u of all_users) { %>
+        <li>
+          <p>
+            <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
+          </p>
+        </li>
+       <% } %>
+  
+    </ul>
   
   </section>
 
-
-
-  <% } else { %>
-
-  <h1>Codeail / Please Sign In</h1>
-
-  
-
-  <% } %>
-
-  <div id="posts-list-container">
-    <ul> 
-      <% for(post of posts) { %>
-
-        <!-- _posts.ejs ko include kiya gaya hai  -->
-        <%- include('_posts')-%>
-
-      <% } %>
-
-    </ul>
-
-  </div>
-
-</div>
-
-
-
-
-
-<section id="user-friends">
-
-  <h4>Friends</h4>
-  <ul>
-    <% for(u of all_users) { %>
-      <li>
-        <p>
-          <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
-        </p>
-      </li>
-     <% } %>
-
-  </ul>
-
 </section>
+
+
 
 
 
