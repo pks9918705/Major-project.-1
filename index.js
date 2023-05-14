@@ -4,6 +4,17 @@ const app = express()
 const cookieParser = require('cookie-parser')
 const port = 8000
 
+// Set the MIME type for JavaScript files
+// app.use('/assets/js', (req, res, next) => {
+//     res.type('application/javascript');
+//     next();
+//   });
+ // Set the MIME type for CSS files
+// app.use('/css', (req, res, next) => {
+//     res.type('text/css');
+//     next();
+//   });
+
 //----------------------------------------------------------------
                 //Flash - Connect-flash
                 // it should be set below express session and passport 
