@@ -20,6 +20,8 @@
         <form action="/posts/create" id="new-post-form" method="POST">
     
           <textarea name="content" id="" cols="30" rows="5"></textarea>
+
+          <!-- <input type="hidden" name="user-name" value="<%= user.name%>" > -->
           
           <button type="submit">&rsaquo;</button>
     
@@ -39,6 +41,7 @@
   
     <div id="posts-list-container">
       <ul> 
+        <% console.log(posts) %>
         <% for(post of posts) { %>
   
           <!-- _posts.ejs ko include kiya gaya hai  -->

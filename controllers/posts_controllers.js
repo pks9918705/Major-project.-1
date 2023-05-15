@@ -10,7 +10,7 @@ module.exports.create=function(req, res){
         
         user: req.user._id
     }) 
-    .then((result)=>{
+    .then((post)=>{
 
       // checking the req is AJAX or not
       if(req.xhr)
