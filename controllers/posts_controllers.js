@@ -11,7 +11,18 @@ module.exports.create=function(req, res){
         user: req.user._id
     }) 
     .then((result)=>{
-        console.log('post added successfully');
+
+      // checking the req is AJAX or not
+      if(req.xhr)
+      {
+        return res.status(200).json({
+          data:{
+            post:post
+          },
+          message:"Post created successfully"
+        })
+      }
+        // console.log('post added successfully');
 
         req.flash('success',"Post created successfully")
        
