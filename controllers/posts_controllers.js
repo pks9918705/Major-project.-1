@@ -12,6 +12,7 @@ module.exports.create=function(req, res){
     }) 
     .then((post)=>{
 
+      //! ********* this is the server side code of AJAX for post creation *******
       // checking the req is AJAX or not
       if(req.xhr)
       {

@@ -1,5 +1,5 @@
 {console.log('I am in home_posts.js'); // Log a message to ensure the script is running
-
+// this javascript will take the form data and make a ajax request to the server
 let createPost = function() {
   let newPostForm = $('#new-post-form');
 
@@ -15,6 +15,8 @@ let createPost = function() {
         // Data is a JSON object
         console.log(data); // Log the response data
 
+        // this will send the data to the next below function of creating a new post 
+        // after the newpost is created it is finally added to the list of posts 
         let newPost = newPostDom(data.data.post);
         $('#posts-list-container>ul').prepend(newPost);
 
@@ -44,7 +46,7 @@ let newPostDom = function(post) {
       <br>
       <small>${post.createdAt}</small>
       <br>
-      <small><i>${post.user.name}</i></small>
+      <small><i>${post.user.name}</i></small> 
 
       <div class="post-comments">
         <form action="/comments/create" method="POST">
@@ -61,5 +63,6 @@ let newPostDom = function(post) {
   `);
 };
 
+// start working of the file 
 createPost();
 }
