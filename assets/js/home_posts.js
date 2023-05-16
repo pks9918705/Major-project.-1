@@ -65,4 +65,39 @@ let newPostDom = function(post) {
 
 // start working of the file 
 createPost();
+
+
+
+
+
+//delete function
+// let distroyPost=function(){
+//   let deletePost = $('#delete-button');
+   
+//   console.log('deletion is working');
+  
+
+//   deletePost.click(function(event) {
+//     event.preventDefault();
+
+//     $.ajax({
+//       type: 'GET',
+//       url: $('/posts/destroy/<%= post.id %>').prop(href),
+       
+//       success: function(response) {
+
+//         console.log(response);
+          
+         
+
+//       },
+//       error: function(error) {
+//         console.log(error.responseText);
+//       }
+//     });
+
+// })}
+  
+
 }
+
