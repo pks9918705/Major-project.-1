@@ -10,7 +10,8 @@
     <!-- updating box for  user profile  -->
     <!-- if user matches then show the form  -->
     <!-- else show only the user profile   -->
-    <form action="/users/update/<%= profile_user.id %>" method="POST">
+    <form action="/users/update/<%= profile_user.id %>" method="POST" enctype="multipart/form-data">
+      <input type="file" name="avatar" placeholder="Your Profile Picture">
       <input type="text" name="name" placeholder="Enter your updated name" value="<%= profile_user.name %>" >
       <input type="email" name="email" placeholder="Enter your updated email" value="<%= profile_user.email %>" >
       <button id="update-button" type="submit">Update</button>
