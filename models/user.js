@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const multer = require('multer')
 
 const path = require('path')
+//AVATAR_PATH is the location where the avatars are going to be stored
 const AVATAR_PATH=path.join('/uploads/users/avatars')
 
 const userSchema =new mongoose.Schema({

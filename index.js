@@ -4,16 +4,7 @@ const app = express()
 const cookieParser = require('cookie-parser')
 const port = 8000
 
-// Set the MIME type for JavaScript files
-// app.use('/assets/js', (req, res, next) => {
-//     res.type('application/javascript');
-//     next();
-//   });
- // Set the MIME type for CSS files
-// app.use('/css', (req, res, next) => {
-//     res.type('text/css');
-//     next();
-//   });
+ 
 
 //----------------------------------------------------------------
                 //Flash - Connect-flash
@@ -79,6 +70,10 @@ app.use(expressLayouts)
 // ----------------------------------------------------------------
 // telling the app to use css/img/js/fonts files from assets  folder
 app.use(express.static('./assets'))
+
+// upload folder access
+//make the uploads path available to the browser
+app.use('/uploads', express.static(__dirname+'/uploads'))
 
 //extract style and scripts from sub-pages and add them to head of layout.ejs
 app.set('layout extractStyles', true)

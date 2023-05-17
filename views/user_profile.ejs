@@ -1,9 +1,18 @@
 <link rel="stylesheet" type="text/css" href="/css/user_profile.css" />
 
 <div>
-  <h1>User Profile</h1>
+  <h1> 
+    <% if(user.id == profile_user.id) { %>
+
+     <b>Holla !</b> <br> 
+     <%}  %>
+
+     <%= profile_user.name%>   
+     </h1>
 </div>
 
+<img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>"  >
+ 
 <div>
   <% if(user.id == profile_user.id) { %>
 
@@ -15,6 +24,10 @@
       <input type="text" name="name" placeholder="Enter your updated name" value="<%= profile_user.name %>" >
       <input type="email" name="email" placeholder="Enter your updated email" value="<%= profile_user.email %>" >
       <button id="update-button" type="submit">Update</button>
+
+    
+
+
     </form>
     
     <% } %>

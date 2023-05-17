@@ -10,8 +10,10 @@
         <% if(locals.user){ %>
             <li>
                 
-                <a href="/users/profile">
-                    <%= user.name %>
+                <a id="header-dp" href="/users/profile">
+                    <img id="small-dp" src="<%= user.avatar %>" alt="X" width="20">
+                    <span><%= user.name %></span>
+                    
                 </a>
             </li>
     
