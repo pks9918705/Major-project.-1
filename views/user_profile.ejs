@@ -11,7 +11,12 @@
      </h1>
 </div>
 
-<img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>"  >
+<small id="text-preview" style="visibility: hidden; color: red; margin-bottom: 15px;">
+  This a preview of Your Dp
+</small>
+<div id="avatar-preview-container">
+  <img id="avatar-preview" src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>">
+</div>
  
 <div>
   <% if(user.id == profile_user.id) { %>
@@ -19,15 +24,12 @@
     <!-- updating box for  user profile  -->
     <!-- if user matches then show the form  -->
     <!-- else show only the user profile   -->
-    <form action="/users/update/<%= profile_user.id %>" method="POST" enctype="multipart/form-data">
-      <input type="file" name="avatar" placeholder="Your Profile Picture">
+    <form id="avatar-form" action="/users/update/<%= profile_user.id %>" method="POST" enctype="multipart/form-data">
+      <input type="file" id="avatar-input" name="avatar" placeholder="Your Profile Picture">
       <input type="text" name="name" placeholder="Enter your updated name" value="<%= profile_user.name %>" >
       <input type="email" name="email" placeholder="Enter your updated email" value="<%= profile_user.email %>" >
-      <button id="update-button" type="submit">Update</button>
-
-    
-
-
+      <!-- <button id="preview-button" type="button">Preview</button> -->
+      <button id="save-button" type="submit"  >Update</button>
     </form>
     
     <% } %>
@@ -38,3 +40,5 @@
 
   
 </div>
+
+<script type="text/javascript" src="/js/user_profile.js"></script>

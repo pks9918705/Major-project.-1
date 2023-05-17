@@ -22,3 +22,19 @@ body #layout-main {
     border-radius: 50%;
     margin-bottom: 20px;
     border: 7px solid lightgrey; }
+  body #layout-main #preview-button {
+    border-radius: 20px;
+    height: auto;
+    width: auto;
+    font-size: 1.7rem;
+    padding: 0.6rem;
+    margin-top: 2%; }
+  body #layout-main #save-button {
+    border-radius: 20px;
+    height: auto;
+    width: auto;
+    font-size: 1.7rem;
+    padding: 0.6rem;
+    margin-top: 2%; }
+  body #layout-main #avatar-input {
+    background-color: azure; }

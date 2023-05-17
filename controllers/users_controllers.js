@@ -4,7 +4,7 @@ const User = require('../models/user');
 const passport = require('passport');
 
 const path = require('path')
-const fs=require('fs');
+const fs = require('fs');
 
 module.exports.profile = function (req, res) {
 
@@ -45,48 +45,46 @@ module.exports.Update = async function (req, res) {
 
         // })
         try {
+            let user = await User.findById(req.params.id);
 
-            //finding the user
-            let user = await User.findByIdAndUpdate(req.params.id, req.body)
-            User.uploadAvatar(req, res, function (error) {
-                if (error) {
-                    console.log('******mutler error:', error)
+            User.uploadAvatar(req, res, function (err) {
+                if (err) {
+                    console.log('*****Multer Error: ', err);
                 }
-                // console.log(req.file);
-                user.name = req.body.name
-                user.email = req.body.email
 
-                //when user is uploaded a file
+                user.name = req.body.name;
+                user.email = req.body.email;
+
                 if (req.file) {
-                    // to remove an avatar if already present
                     if (user.avatar) {
-
-                        
-
-
+                        // Check if the avatar file exists
+                        if (fs.existsSync(path.join(__dirname, '..', user.avatar))) {
+                            // Delete the previous avatar file
+                            fs.unlinkSync(path.join(__dirname, '..', user.avatar));
+                        }
                     }
-                    // this is saving the uploaded the file path in the avatar field of user 
-                    user.avatar = User.avatarPath + '/' + req.file.filename
+                    // Save the path of the uploaded file into the avatar field in the user
+                    user.avatar = User.avatarPath + '/' + req.file.filename;
 
+                   
                 }
-                user.save()
-                return res.redirect('back')
+                user.save();
+                req.flash("Dp Updated");
+                return res.redirect('back');
+            });
 
-            })
-
-
-
-
+        } catch (err) {
+            // Handle any other errors
+            req.flash('error', err);
+            console.log('Error: ', err);
+            return res.redirect('back');
         }
-        catch (err) {
 
-            req.flash("error", err)
-            return res.redirect('back')
 
-        }
 
 
     }
+
     else {
         console.log('Hato bhencho nhi hoga update ', err);
         return res.status(401).send('Unauthorized')
