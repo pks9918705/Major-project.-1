@@ -1,6 +1,6 @@
 const passport = require('passport')
 const JWTStrategy = require('passport-jwt').Strategy
-const ExtractJWT=require('extract-jwt').ExtractJWT
+const ExtractJWT=require('passport-jwt').ExtractJWT
 
 
 // we are going to use User models for authentication purposes

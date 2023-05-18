@@ -63,3 +63,21 @@ This workflow allows for stateless authentication, as the server does not need t
 
 ************************************************************************************************
 
+initially when we sign in , some cookie is set in backgound by passport but here we are explicitly going to create json web token and sent it for that we are going to install an libraby
+ChatGPT
+Yes, in traditional session-based authentication with cookies, when a user signs in, the server typically creates a session and stores a session identifier (often a cookie) in the client's browser. This session identifier is used to maintain the user's authenticated state on subsequent requests.
+
+However, in the case of JWT authentication, the server generates a JSON Web Token (JWT) instead of using a session identifier stored in a cookie. The JWT is then sent to the client, typically in the response body or a response header, and the client stores it securely.
+
+To facilitate the creation and handling of JWTs, you will need to install and use a library or module that provides JWT functionality. Popular libraries for working with JWTs in various programming languages include "jsonwebtoken" for Node.js, "PyJWT" for Python, or "java-jwt" for Java, among others.
+
+These libraries provide functions or classes to generate JWTs, sign and verify them using cryptographic algorithms, extract and decode the payload, and handle common JWT-related operations.
+
+By using a JWT library, you can easily implement JWT authentication in your application, including the generation, verification, and handling of JWTs. This allows you to securely authenticate and authorize users using JWTs instead of session identifiers stored in cookies.
+
+
+
+
+
+****************************************************************
+
