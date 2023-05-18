@@ -43,6 +43,12 @@ const session = require('express-session')
 const passport = require('passport')
 const passportLocal = require('./config/passport-local-strategy')
 
+//----------------------------------------------------------------
+                //!JWT- passport
+//----------------------------------------------------------------
+const passportJWT=require('./config/passport-jwt-strategy')
+
+
 
 
 //----------------------------------------------------------------
