@@ -3,7 +3,7 @@
 const express=require('express');
 
 const router=express.Router()
-
+                                 //! Route index for "routes" folder
 
 //adding controllers
 const homeController=require('../controllers/home_controllers')
@@ -21,6 +21,9 @@ router.use('/posts', require('./posts'))
 router.use('/comments', require('./comments'))
 
 // router.use('/posts',require('./posts'))
+
+
+router.use('/api', require('./api'))
 
 
 
