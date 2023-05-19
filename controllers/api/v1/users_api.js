@@ -4,19 +4,23 @@ const jwt = require('jsonwebtoken')
 
 
 
-module.exports.createSession=async function(re,res){
+module.exports.createSession=async function(req,res){
 
     try{
+console.log("$$$$$",req);
 
-        let user=User.findOne({email:req.body.email})
+        let user= await User.findOne({email:req.body.email})
+        console.log(user);
+        
 
-        if(!user || user.password!=req.body.password){
-            return res.json(422,{
-                message: 'Invalid username or password"
+        if(!user ||  user.password != req.body.password){
+             
+            return res.status(422).json({
+                message: 'Invalid username or password'
             })
         }
 
-        return res.json(200,{
+        return res.status(200).json({
             message: 'Sign in successfully,Here is your token , So keep it safely',
             data:{
                 token:jwt.sign(user.toJSON(),'codiel',{expiresIn:10000})
@@ -26,7 +30,7 @@ module.exports.createSession=async function(re,res){
     }
     catch(e){
         console.log('****',e);
-       return res.json(500,{
+       return res.status(500).json({
         message:"Internal Server Error",
        })
     }

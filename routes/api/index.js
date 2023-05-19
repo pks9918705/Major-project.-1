@@ -6,7 +6,6 @@ const router=express.Router()
 
 //? router for version 1 
 router.use('/v1',require('./v1'))
-//? router for version 2
-router.use('/v2',require('./v2'))
+
 
 module.exports =router;
