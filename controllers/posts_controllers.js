@@ -35,14 +35,8 @@ module.exports.create=function(req, res){
         req.flash('error',"Post creation failed")
         return res.redirect('back');
         
-
     })
-
-
 }
-
-
- 
 //? for deleting the post 
 module.exports.destroy = function(req, res) {
     // Find the post to check if it exists or not

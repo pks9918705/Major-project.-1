@@ -1,65 +1,51 @@
- 
 const Comment = require('../models/comment');
 const Post = require('../models/post');
 const mongoose = require('mongoose');
+const commentMailer = require('./mailers/comments_mailer');
 
-module.exports.create = (req, res) => {
-    console.log(req.body.postId);
-    console.log(req.body.content);
-
+module.exports.create = async (req, res) => {
+  try {
     const id = req.body.postId.trim();
-    console.log(req.body.postId);
-
-
 
     const objectId = new mongoose.Types.ObjectId(id);
-    // used to coonvert string into ObjectId 
 
+    const post = await Post.findOne({ _id: id });
+    if (!post) {
+      console.log("Post not found");
+      return res.redirect('back');
+    }
 
-    Post.findOne({ _id: id })
-        .then(post => {
-            if (!post) {
-                console.log("Post not found");
-                return res.redirect('back');
-            }
+    const comment = await Comment.create({
+      content: req.body.content,
+      post: objectId,
+      user: req.user._id
+    });
 
-            Comment.create({
-                content: req.body.content,
-                post: objectId, // Convert string to ObjectId
-                user: req.user._id
-            })
-                .then(comment => {
+    if (!post.comments) {
+      console.log('No comments array exists');
+      post.comments = [];
+    }
+    console.log('Comments array is created');
 
-                    //creating array
-                    if (!post.comments) {
-                        console.log('no comments array os there');
-                        
-                        post.comments = [];
-                        
+    const objectId2 = new mongoose.Types.ObjectId(comment.id);
+    post.comments.push(objectId2);
+    await post.save();
 
-                    }
-                    if(post.comments){
-                    console.log(' comments array is created');}
+    console.log("Comment done");
 
-                    console.log("id of comment",comment.id);
-                    const objectId2 = new mongoose.Types.ObjectId(comment.id);
-                    
+    //populate kiya gaya hai user ko but email shirf kiya gaya hai 
+    //agar email nhi ligkhoge toh user ka sara info populate ho jagya includig password
+    // ******
+    // In this specific line, comment.populate('user','email') is populating the user field of the comment object with the fields specified, which is email. This means that the user field will be replaced with the complete user object, but only the email field will be populated with data. Other fields of the user object will be omitted.
+    // *******
 
-                    post.comments.push(objectId2);
-                    post.save();
+    // below user email and name is passed
+    const populatedComment = await comment.populate('user','email name ');
+    commentMailer.newComment(populatedComment);
 
-                    console.log("Comment done");
-
-                    return res.redirect('/');
-                })
-                .catch(error => {
-                    console.log("Error in creating the Comment", error);
-                    return;
-                });
-        })
-        .catch(error => {
-            console.log("Error in finding the Post", error);
-            return res.redirect('back');
-        });
+    return res.redirect('/');
+  } catch (error) {
+    console.log("Error in creating the Comment", error);
+    return res.redirect('back');
+  }
 };
-
