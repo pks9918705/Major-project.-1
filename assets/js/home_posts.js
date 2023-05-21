@@ -13,7 +13,7 @@ let createPost = function() {
 
       success: function(data) {
         // Data is a JSON object
-        console.log(data); // Log the response data
+        // console.log(data); // Log the response data
 
         // this will send the data to the next below function of creating a new post 
         // after the newpost is created it is finally added to the list of posts 
@@ -31,17 +31,21 @@ let createPost = function() {
 let newPostDom = function(post) {
   console.log('Post is created');
 
-  console.log('Post yeah h', post);
+  // console.log('Post yeah h', post);
   // console.log(post.user);
 
   // Use template literals (`) instead of mixed HTML and concatenation
   return $(`
     <li id="post-${post._id}">
       <p>${post.content}</p>
+      
+      <a style="color: brown;" href="">Like</a>
 
       <small id="delete-button">
         <a class="delete-post-button" href="/posts/destroy/${post._id}">Delete</a>
       </small>
+
+      
 
       <br>
       <small>${post.createdAt}</small>

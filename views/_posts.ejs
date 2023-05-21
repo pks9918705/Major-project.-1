@@ -2,8 +2,9 @@
     <p>
       <%= post.content %>
     </p>
+    <a style="color: brown;" href="">Like</a>
 
-    <!-- only when the user is signed in  -->
+     <!-- only when the user is signed in  -->
    <!-- Delete button is visible to the user you have create the post  -->
 <%   if(locals.user && locals.user.id == post.user.id) { %>
     <small id="delete-button">
@@ -11,9 +12,8 @@
       <a href="/posts/destroy/<%= post.id %>"> Delete </a>
        
     </small>
-
-
-
+      
+ 
     <% } %>
 
     <br>
@@ -28,7 +28,9 @@
 
      <% if(locals.user) { %>
       <!-- if user is singin then only add comment can take place  -->
-      <!-- <div id="like-button">
+      <!-- <div id="like-button"> 
+
+
         <div id="main-contentt">
           <div>
             <input type="checkbox" id="checkbox" />
@@ -83,7 +85,10 @@
        </div>
        </div> -->
 
-      <form action="/comments/create" method="POST">
+      <a href="/likes/toggle/?id=<%= post.likes.length%>" class="toggle-like-button" data-links="<%= post.like.length%>">
+        <%= post.likes.length %>Likes
+      </a>
+       <form action="/comments/create" method="POST">
 
         <input type="text" name="content" placeholder="Add comment to post... ">
         <!-- here we are sending the current post_id so that comment is added on it  -->
@@ -91,7 +96,10 @@
         <input type="submit" value="Add Comment">
       </form>
 
-      <% } %>
+      <% } else { %>
+        <%= post.likes.length %>Likes
+        <%} %>
+
 
      </div>
 
