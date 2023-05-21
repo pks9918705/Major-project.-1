@@ -27,9 +27,7 @@ const userSchema =new mongoose.Schema({
     avatar:{
         type:String
     }
-
-
-
+ 
 },{
     timestamps:true
     // it has data of time when objects is created 

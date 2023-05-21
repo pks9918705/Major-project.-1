@@ -25,7 +25,8 @@ router.use('/comments', require('./comments'))
 
 router.use('/api', require('./api'))
 
-
+// router for likes.js
+router.use('/likes', require('./likes'))
 
 
 //for any other routes access from here
