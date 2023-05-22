@@ -1,2 +1,6 @@
 bug on 17may 
 - in uploading avatar
+
+Feature to be implemented-
+1. music in chat background
+2. background picture in user profile
