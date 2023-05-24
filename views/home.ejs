@@ -87,6 +87,16 @@
 <!-- -----------------------------------------------------  -->
 <script type="text/javascript"  src="/js/home_posts.js"> </script> 
 
+<!-- import the script file for toggle likes , also run it over for the present post and comments 
+ -->
+<script src="/js/toggle_likes.js"></script>
+<script>
+  $('.toggle-like-button').each(function(){
+    let self=this;
+    let toggleLike=new ToggleLike(self)
+  })
+</script>
+
 
 
 

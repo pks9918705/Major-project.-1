@@ -1,34 +1,41 @@
 <li id="post-<%= post._id %>">
-    <p>
-      <%= post.content %>
-    </p>
-    <a style="color: brown;" href="">Like</a>
+  <p><%= post.content %></p>
+  <!-- <a style="color: brown" href="">Like</a> -->
 
-     <!-- only when the user is signed in  -->
-   <!-- Delete button is visible to the user you have create the post  -->
-<%   if(locals.user && locals.user.id == post.user.id) { %>
-    <small id="delete-button">
-      <!-- way to send id through link  -->
-      <a href="/posts/destroy/<%= post.id %>"> Delete </a>
-       
-    </small>
-      
- 
-    <% } %>
+  <small>
+    <% if (locals.user){ %>
+    <a
+      class="toggle-like-button"
+      data-likes="<%= post.likes.length %>"
+      href="/likes/toggle/?id=<%=post._id%>&type=Post"
+    >
+    <%= post.likes.length %> Likes
+    </a>
+    <% }else{ %> 
+      <%= post.likes.length %> Likes
+       <% } %>
+  </small>
 
-    <br>
-    <small> <%= post.createdAt %> </small>
-    <br>
-     <small><i><%= post.user.name %></i> </small>
+  <!-- only when the user is signed in  -->
+  <!-- Delete button is visible to the user you have create the post  -->
+  <% if(locals.user && locals.user.id == post.user.id) { %>
+  <small id="delete-button">
+    <!-- way to send id through link  -->
+    <a href="/posts/destroy/<%= post.id %>"> Delete </a>
+  </small>
 
-   
+  <% } %>
 
-     <!-- adding the comment box in post display  -->
-     <div class="post-comments">
+  <br />
+  <small> <%= post.createdAt %> </small>
+  <br />
+  <small><i><%= post.user.name %></i> </small>
 
-     <% if(locals.user) { %>
-      <!-- if user is singin then only add comment can take place  -->
-      <!-- <div id="like-button"> 
+  <!-- adding the comment box in post display  -->
+  <div class="post-comments">
+    <% if(locals.user) { %>
+    <!-- if user is singin then only add comment can take place  -->
+    <!-- <div id="like-button"> 
 
 
         <div id="main-contentt">
@@ -85,33 +92,22 @@
        </div>
        </div> -->
 
-      <a href="/likes/toggle/?id=<%= post.likes.length%>" class="toggle-like-button" data-links="<%= post.like.length%>">
-        <%= post.likes.length %>Likes
-      </a>
-       <form action="/comments/create" method="POST">
+   
+    <form action="/comments/create" method="POST">
+      <input type="text" name="content" placeholder="Add comment to post... " />
+      <!-- here we are sending the current post_id so that comment is added on it  -->
+      <input type="hidden" name="postId" value=" <%= post._id %>" />
+      <input type="submit" value="Add Comment" />
+    </form>
 
-        <input type="text" name="content" placeholder="Add comment to post... ">
-        <!-- here we are sending the current post_id so that comment is added on it  -->
-        <input type="hidden" name="postId" value=" <%= post._id %>">
-        <input type="submit" value="Add Comment">
-      </form>
+    <% } %>
+  </div>
 
-      <% } else { %>
-        <%= post.likes.length %>Likes
-        <%} %>
-
-
-     </div>
-
-      <!-- showing the comment list  -->
-      <div class="post-comment-lists">
-        <ul id="post-comments-<%=post._id %>">
-
-          <!-- including the comments.ejs files  -->
-            <%- include('_comments')-%> 
-         
-
-        </ul>
-       </div>
-
-  </li>
+  <!-- showing the comment list  -->
+  <div class="post-comment-lists">
+    <ul id="post-comments-<%=post._id %>">
+      <!-- including the comments.ejs files  -->
+      <%- include('_comments')-%>
+    </ul>
+  </div>
+</li>

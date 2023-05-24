@@ -1,3 +1,6 @@
+.toggle-like-button {
+  color: red; }
+
 #home-page {
   display: flex;
   flex-direction: column;
