@@ -1,7 +1,7 @@
 
  
 .toggle-like-button{
-  color: red;
+  color: rgb(0, 139, 246);
 }
 #home-page{
     display: flex;
@@ -31,6 +31,7 @@
 
         li{
             height: auto;
+            width: 100%;
             // border: 2px solid black;
             margin-bottom: 1.5rem;
             padding: 15px;
@@ -121,6 +122,8 @@
 
    
     #like-button{
+
+      
         body{margin:0; padding:0; -webkit-font-smoothing: antialiased; font-family:arial;
          }
 
