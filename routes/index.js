@@ -15,7 +15,7 @@ router.get('/', homeController.home)
  
 //Connecting new file
 router.use('/users', require('./users'))
-//foR creatinf new post
+//foR creating new post
 router.use('/posts', require('./posts'))
 
 router.use('/comments', require('./comments'))
@@ -27,6 +27,8 @@ router.use('/api', require('./api'))
 
 // router for likes.js
 router.use('/likes', require('./likes'))
+
+router.use('/friend',require('./friendship'))
 
 
 //for any other routes access from here

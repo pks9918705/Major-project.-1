@@ -2,6 +2,8 @@ const cookieParser = require("cookie-parser");
 
 const Post = require("../models/post");
 const User = require("../models/user");
+// const Friendship = require("../models/friendship");
+const Friendship=require('../models/friendship')
 
 module.exports.home = async function(req, res) {
   try {
@@ -24,7 +26,11 @@ module.exports.home = async function(req, res) {
       .populate('likes')
       ;
 
-    let users = await User.find({});
+    let users = await User.find({})
+    
+
+
+
 
     return res.render('home', {
       title: "Home",

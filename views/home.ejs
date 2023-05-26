@@ -80,12 +80,11 @@
           </p>
           <div>
             <% if(locals.user._id.toString() !== u.id.toString() ){ %>
-              <button id="btn-addFriend">Add Friend</button> 
+              <button  class="add-friend-button" data-loginuser="<%= locals.user._id%>" data-userid="<%= u.id %>" onclick="addFriendClicked(this)">Add Friend</button>
+
               <% } else { %>
 
-                <button id="btn-sentReq">Sent Request</button>
-                <!-- <button id="btn-sentReq">Confirm</button>
-                <span><button id="btn-sentReq">Delete Request</button></span> -->
+                
                 <% } %>
 
           </div>
@@ -123,6 +122,9 @@
 <!-- -------------- adding script from home_posts.ejs -------------------  -->
 <!-- -----------------------------------------------------  -->
 <script type="text/javascript"  src="/js/home_posts.js"> </script> 
+
+<!-- import ajax for Friend Request  -->
+<script type="text/javascript" src="/js/friendship.js"></script>
 
 <!-- import the script file for toggle likes , also run it over for the present post and comments 
  -->

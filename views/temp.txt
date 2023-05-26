@@ -6,3 +6,6 @@ Feature to be implemented-
 2. background picture in user profile
 
 
+<button id="btn-sentReq">Sent Request</button>
+                <!-- <button id="btn-sentReq">Confirm</button>
+                <span><button id="btn-sentReq">Delete Request</button></span> -->

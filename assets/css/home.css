@@ -1,23 +1,13 @@
 .toggle-like-button {
   color: #008bf6; }
 
-#btn-addFriend {
+.add-friend-button {
   height: auto;
   width: 100px;
   font-size: 0.8rem;
   background-color: #4a4afd;
   color: white;
   border: none;
-  padding: 3px 5px;
-  border-radius: 5px; }
-
-#btn-sentReq {
-  height: auto;
-  width: 100px;
-  font-size: 0.8rem;
-  background-color: #f4f4f4;
-  color: #545454;
-  border: 0.8px solid black;
   padding: 3px 5px;
   border-radius: 5px; }
 
