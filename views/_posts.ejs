@@ -9,12 +9,9 @@
       data-likes="<%= post.likes.length %>"
       href="/likes/toggle/?id=<%=post._id%>&type=Post"
     >
-    
-    <%= post.likes.length %> Likes
-    </a>
-    <% }else{ %> 
       <%= post.likes.length %> Likes
-       <% } %>
+    </a>
+    <% }else{ %> <%= post.likes.length %> Likes <% } %>
   </small>
 
   <!-- only when the user is signed in  -->
@@ -28,7 +25,10 @@
   <% } %>
 
   <br />
-  <small> <%= post.createdAt %> </small>
+  <small>
+    <!-- in ejs there is no .slice() function  -->
+    <% let time = post.createdAt.toString().substring(0, 24) %> <%= time %>
+  </small>
   <br />
   <small><i><%= post.user.name %></i> </small>
 
@@ -36,9 +36,7 @@
   <div class="post-comments">
     <% if(locals.user) { %>
     <!-- if user is singin then only add comment can take place  -->
-  
 
-   
     <form action="/comments/create" method="POST">
       <input type="text" name="content" placeholder="Add comment to post... " />
       <!-- here we are sending the current post_id so that comment is added on it  -->
@@ -105,7 +103,6 @@
     </div>
    </div>
    </div>   -->
-   
 
   <!-- showing the comment list  -->
   <div class="post-comment-lists">

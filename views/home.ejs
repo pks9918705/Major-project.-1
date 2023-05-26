@@ -60,23 +60,60 @@
   </section>
   
   
-  
+ 
   <section id="user-friends">
+
+    <% if(locals.user){ %>
   
     <h4>Friends</h4>
     <ul>
+      
       <% for(u of all_users) { %>
         <li>
           <p>
-            <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
+            <a href="/users/profile/<%= u.id %>"> <%= u.name %></a> 
+            <!-- condition that user itself profile should not have a button Add Friend  -->
+            <!-- <% console.log("*************",u.id)%>
+            <% console.log("*************",locals.user)%> -->
+            
+            
           </p>
+          <div>
+            <% if(locals.user._id.toString() !== u.id.toString() ){ %>
+              <button id="btn-addFriend">Add Friend</button> 
+              <% } else { %>
+
+                <button id="btn-sentReq">Sent Request</button>
+                <!-- <button id="btn-sentReq">Confirm</button>
+                <span><button id="btn-sentReq">Delete Request</button></span> -->
+                <% } %>
+
+          </div>
         </li>
         
        <% } %>
   
     </ul>
-  
+    <% } else { %>
+
+      <h4>People on Codiel</h4>
+      <ul>
+        
+        <% for(u of all_users) { %>
+          <li>
+            <p>
+              <a href="/users/profile/<%= u.id %>"> <%= u.name %></a> 
+             
+            </p>
+          </li>
+          
+         <% } %>
+    
+      </ul>
+  <% } %>
+
   </section>
+ 
 
  
 

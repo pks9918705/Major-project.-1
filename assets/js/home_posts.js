@@ -1,4 +1,5 @@
 {
+  console.log('$$$ Client side home_posts.js');
   console.log('I am in home_posts.js'); // Log a message to ensure the script is running
   // this javascript will take the form data and make a ajax request to the server
   let createPost = function () {

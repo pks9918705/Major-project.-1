@@ -1,5 +1,7 @@
 {
-    console.log('i am user profile js');
+    console.log('$$$ Client side user_profile.js');
+    
+    console.log('i am user profile js ');
 
     const avatarInput = document.getElementById('avatar-input');
     // const previewButton = document.getElementById('preview-button');

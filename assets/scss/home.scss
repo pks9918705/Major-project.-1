@@ -3,6 +3,27 @@
 .toggle-like-button{
   color: rgb(0, 139, 246);
 }
+#btn-addFriend{
+  height: auto;
+  width: 100px;
+  font-size: 0.8rem;
+  background-color: rgb(74, 74, 253);
+  color: white;
+  border: none;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+#btn-sentReq{
+  height: auto;
+  width: 100px;
+  font-size: 0.8rem;
+  background-color: rgb(244, 244, 244);
+  color: rgb(84, 84, 84);
+  border: 0.8px solid black;
+  padding: 3px 5px;
+  border-radius: 5px;
+  
+}
 #home-page{
     display: flex;
     flex-direction: column;
@@ -80,7 +101,15 @@
 
 #user-friends{
      ul{
+      width: 100%;
+      display: flex;
+          justify-content: space-between;
+          align-items: center;
         li{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
             a{
                 color: black;
                 border: none;
@@ -103,13 +132,13 @@
 
         
         #user-friends{
-            padding-left: 100px;
+            padding-left: 10px;
             height: 100vh;
             h4{
                 text-align: center;
             }
             // border-left: 1px solid black;
-            width: 30%;
+            width: 410px;
 
             ul{
                 display: flex;

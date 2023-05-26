@@ -1,4 +1,6 @@
 //! CHANGE :: create a class to toggle likes when a link is clicked, using AJAX
+
+ console.log('$$$ Client side togglelikes.js');
 class ToggleLike{
     constructor(toggleElement){
         this.toggler = toggleElement;
